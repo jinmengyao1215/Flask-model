@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>READMISSION</title>
+    <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial;
+      padding: 10px;
+      background: 	#FFFFFF;
+    }
+
+    .leftcolumn {
+      float: left;
+      width: 30%;
+      background-color: #FFFFFF;
+      border:4px solid #a1a1a1;
+      border-radius: 25px;
+      padding: 10px 10px 10px 10px;
+      font-family:"Trebuchet MS";
+      margin:50px
+
+    }
+    .father_box {
+     margin: auto;
+     width: 90%;
+     height: 90%;
+     background-color: #FFFFFF;
+     display: flex;
+   }
+   .son_box {
+     width: 100%;
+     height: 20%;
+     background-color: #FFFFFF;
+
+   }
+   .son_box1 {
+     width: 50%;
+     height: 80%;
+     background-color: #FFFFFF;
+   }
+    .son_box2 {
+     width: 50%;
+     height: 80%;
+     background-color: #FFFFFF;
+   }
+
+
+
+      /* 右侧栏 */
+    .rightcolunm {
+      float: right;
+      width: 60%;
+      background-color: #FFFFFF;
+      padding-left: 20px;
+      padding-right: 150px;
+      border: 20px #FFFFFF;
+
+
+
+      }
+     input[type=number], select {
+        width: 80%;
+        padding: 10px 10px;
+        margin: 8px 8px 8px 8px ;
+        display: inline-block;
+        border: 5px solid #ccc;
+        border-radius: 8px;
+        box-sizing: border-box;
+        font-family:"Trebuchet MS";
+        font-size:15px;
+      }
+
+      button {
+        width: 90%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 8px 8px 8px ;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-family:"Trebuchet MS";
+        font-size:18px;
+        box-shadow: 5px 5px 10px #888888;
+
+      }
+
+      input[type=submit]:hover {
+        background-color: #45a049;
+      }
+      p.title{font-family:"Trebuchet MS",Times,serif;font-size:35px;}
+      p.serif{font-family:"Trebuchet MS",Times,serif;font-size:25px;}
+      p.intro{font-family:"Trebuchet MS",Times,serif;font-size:25px;}
+      p.prob{font-family:"Trebuchet MS",Times,serif;
+      font-size:20px;}
+      p {font-size:20px;}
+    </style>
+
+  </head>
+
+
+  <body>
+
+    <div class="row">
+
+      <div class="leftcolumn">
+
+        <div class="text">
+          <p class="serif">Please enter patient_id or clinical data.</p>
+        </div>
+          <div class="father_box">
+              <div class="son_box">
+                  <label for="Patient_ID">Patient_ID<br>
+                        <input type="number" id="Patient_ID" name="Patient_ID">
+                    </label><br><br><br>
+              </div>
+
+          </div>
+
+
+        <form action="{{ url_for('predict')}}" method="post">
+            <div class="father_box">
+                <div class="son_box1">
+                    <label for="age">Age<br>
+                        <input type="number" id="age" name="age" placeholder="">
+
+                    <label for="Temperature">Temperature<br>
+                        <input type="number" step="0.0001" id="Temperature" name="Temperature">
+                    </label><br>
+                    <label for="SBP">SBP<br>
+                        <input type="number" step="0.0001" id="SBP" name="SBP">
+                    </label><br>
+                    <label for="DBP">DBP<br>
+                        <input type="number" step="0.0001" id="DBP" name="DBP">
+                    </label>   <br>
+                    <label for="Neutrophils">Neutrophils<br>
+                        <input type="number" step="0.0001" id="Neutrophils" name="Neutrophils">
+                    </label>   <br>
+                    <label for="iP">iP<br>
+                        <input type="number" step="0.0001" id="iP" name="iP">
+                    </label>   <br>
+            </label>
+                </div>
+                <div class="son_box2">
+                    <label for="WBC">WBC<br>
+                        <input type="number" step="0.0001" id="WBC" name="WBC">
+                    </label>
+                    <label for="RBC">RBC<br>
+                        <input type="number" step="0.0001" id="RBC" name="RBC">
+                    </label><br>
+                    <label for="SUA">SUA<br>
+                        <input type="number" step="0.0001" id="SUA" name="SUA">
+                    </label><br>
+                    <label for="Mg">Mg<br>
+                        <input type="number" step="0.0001" id="Mg" name="Mg">
+                    </label>   <br>
+                    <label for="TRAb">TRAb<br>
+                        <input type="number" step="0.0001" id="TRAb" name="TRAb">
+                    </label>   <br>
+                    <label for="Hypertension">Hypertension<br>
+                     <select id="Hypertension" name="Hypertension"><br>
+                       <option value='0'>No</option>
+                       <option value='1'>Yes</option>
+                       </select></label>
+
+                </div>
+
+            </div>
+
+<!--            <label for="age">Age-->
+<!--            <input type="number" id="age" name="age" placeholder="">-->
+<!--            </label>-->
+<!--            <label for="visit_id">Number of admissions<br>-->
+<!--            <input type="number" id="visit_id" name="visit_id" ><br>-->
+<!--             </label>-->
+
+
+<!--      <label for="days">Length of stay<br>-->
+<!--      <input type="number" id="days" name="days" placeholder=""><br>-->
+<!--      </label>-->
+<!--&lt;!&ndash;                <label for="ad">ads<br>&ndash;&gt;-->
+<!--&lt;!&ndash;      <input type="number" id="ad" name="ad" placeholder=""><br>&ndash;&gt;-->
+<!--&lt;!&ndash;      </label>&ndash;&gt;-->
+
+<!--      <label for="RBC">Red blood cell<br>-->
+<!--      <input type="number" step="0.0001" id="RBC" name="RBC">-->
+<!--        </label><br>-->
+
+
+<!--      <label for="bacophil">Basophil<br>-->
+<!--      <input type="number" step="0.0001" id="bacophil" name="bacophil" >-->
+<!--        </label><br>-->
+
+<!--      <label for="UC">Urine conductivity<br>-->
+<!--      <input type="number"  step="0.0001" id="UC" name="UC" >-->
+<!--        </label><br>-->
+<!--                  <label for="SG">Urine specific gravity<br>-->
+<!--      <input type="number" step="0.0001" id="SG" name="SG" >-->
+<!--        </label><br>-->
+
+<br>
+
+
+
+          <button type="submit" class="btn">Submit</button>
+        </form>
+
+
+
+      </div>
+      <div class="rightcolunm">
+<br>
+        <p class="title">The predicted risk of stroke in patients with atrial fibrillation is</p>
+
+<!--        <button type="submit" class="btn">Submit</button>-->
+
+<!--        <p class="serif">The predicted result is</p>-->
+
+<!--        <p class="prob">{{ prediction_text }}</p>-->
+        <p class="prob">
+          {{ risk }}
+        </p>
+
+          <body>
+          <img src="{{ plot_ural }}">
+
+          </body>
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
